@@ -1,12 +1,5 @@
 #include <Arduino.h>
 
-// void size_3(int number){
-//   if(number < 100)
-//   {
-//
-//   }
-// }
-
 static float deg_radian(float degree)
 {
   return degree * M_PI / 180.0;
@@ -38,7 +31,7 @@ Line angelLine[last_pin];
 int Line_sensorpin[last_pin] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 
 const int recieve_pin = 5;
-const int Line_border = 400;
+const int Line_border = 750;
 
 void setup()
 {
@@ -118,5 +111,19 @@ void loop()
     unity = vy / vr;
   }
 
-  delay(10);
+  Serial.print("vx:"); Serial.print(vx);
+  Serial.print(" vy:"); Serial.print(vy);
+  Serial.print(" vr:"); Serial.print(vr);
+  // Serial.print(" unitx:"); Serial.print(unitx);
+  // Serial.print(" unity:"); Serial.print(unity);
+
+  float normalx = unity;
+  float normaly = -unitx;
+
+  Serial.print(" normalx:"); Serial.print(normalx);
+  Serial.print(" normaly:"); Serial.print(normaly);
+
+  Serial.println("");
+
+  delay(500);
 }
